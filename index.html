@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اینستاگرام بدون فیلتر - فروش فالوور و لایک</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            color: #fff;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-family: 'Brush Script MT', cursive;
+            font-weight: normal;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .login-btn {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .products-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .product-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .free-badge {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .featured {
+            border: 2px solid #ffcc00;
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #ffcc00;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .testimonials {
+            margin-bottom: 60px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.6;
+            font-size: 14px;
+        }
+        
+        /* مودال ورود */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+        }
+        
+        .modal-icon {
+            font-size: 60px;
+            color: #ff416c;
+            margin-bottom: 15px;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .modal-text {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-instagram"></i>
+                <span class="logo-text">InstagramPro</span>
+            </div>
+            <div class="user-menu">
+                <a href="#testimonials">نظرات کاربران</a>
+                <a href="#products">محصولات</a>
+                <a href="#" class="login-btn" id="loginHeaderBtn">
+                    <i class="fas fa-user"></i> ورود به حساب
+                </a>
+            </div>
+        </header>
+        
+        <section class="hero">
+            <h1>فروش فالوور و لایک واقعی اینستاگرام</h1>
+            <p>بدون نیاز به فیلترشکن • تحویل فوری • تضمین کیفیت</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">۱۰۰٬۰۰۰+</span>
+                    <span class="stat-label">فالوور فروخته شده</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">۹۹٪</span>
+                    <span class="stat-label">رضایت مشتری</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">۲۴/۷</span>
+                    <span class="stat-label">پشتیبانی آنلاین</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="products-section" id="products">
+            <h2 class="section-title">محصولات ویژه</h2>
+            <div class="products-grid">
+                <!-- محصول ۱ -->
+                <div class="product-card">
+                    <div class="free-badge">پیشنهاد رایگان</div>
+                    <i class="fas fa-users product-icon"></i>
+                    <h3 class="product-title">۱۰۰ فالوور واقعی</h3>
+                    <p class="product-description">
+                        فالوورهای فعال و واقعی ایرانی
+                        <br>تحویل در کمتر از ۲۴ ساعت
+                    </p>
+                    <div class="price">رایگان</div>
+                    <button class="cta-button" onclick="selectProduct(1)">
+                        دریافت رایگان
+                    </button>
+                </div>
+                
+                <!-- محصول ۲ -->
+                <div class="product-card featured">
+                    <div class="featured-badge">پرفروش ترین</div>
+                    <i class="fas fa-fire product-icon"></i>
+                    <h3 class="product-title">۱,۰۰۰ فالوور VIP</h3>
+                    <p class="product-description">
+                        فالوورهای پرانگیش با تعامل بالا
+                        <br>ضمانت برگشت در صورت عدم رضایت
+                    </p>
+                    <div class="price">۴۹,۰۰۰ تومان</div>
+                    <button class="cta-button" onclick="selectProduct(2)">
+                        خرید آنلاین
+                    </button>
+                </div>
+                
+                <!-- محصول ۳ -->
+                <div class="product-card">
+                    <div class="free-badge">تست رایگان</div>
+                    <i class="fas fa-heart product-icon"></i>
+                    <h3 class="product-title">۵۰۰ لایک واقعی</h3>
+                    <p class="product-description">
+                        لایک از کاربران واقعی
+                        <br>افزایش اعتبار پست‌های شما
+                    </p>
+                    <div class="price">رایگان</div>
+                    <button class="cta-button" onclick="selectProduct(3)">
+                        درخواست لایک
+                    </button>
+                </div>
+                
+                <!-- محصول ۴ -->
+                <div class="product-card">
+                    <i class="fas fa-comments product-icon"></i>
+                    <h3 class="product-title">۱۰۰ کامنت واقعی</h3>
+                    <p class="product-description">
+                        کامنت‌های متنوع و جذاب
+                        <br>افزایش تعامل پست‌ها
+                    </p>
+                    <div class="price">۲۹,۰۰۰ تومان</div>
+                    <button class="cta-button" onclick="selectProduct(4)">
+                        سفارش کامنت
+                    </button>
+                </div>
+                
+                <!-- محصول ۵ -->
+                <div class="product-card">
+                    <i class="fas fa-chart-line product-icon"></i>
+                    <h3 class="product-title">پکیج طلایی</h3>
+                    <p class="product-description">
+                        ۲,۰۰۰ فالوور + ۱,۰۰۰ لایک + ۵۰۰ کامنت
+                        <br>پکیج کامل برای رشد سریع
+                    </p>
+                    <div class="price">۱۲۹,۰۰۰ تومان</div>
+                    <button class="cta-button" onclick="selectProduct(5)">
+                        خرید پکیج
+                    </button>
+                </div>
+                
+                <!-- محصول ۶ -->
+                <div class="product-card">
+                    <i class="fas fa-crown product-icon"></i>
+                    <h3 class="product-title">۱۰,۰۰۰ فالوور</h3>
+                    <p class="product-description">
+                        برای پیج‌های تجاری بزرگ
+                        <br>تحویل تدریجی در ۷ روز
+                    </p>
+                    <div class="price">۳۹۹,۰۰۰ تومان</div>
+                    <button class="cta-button" onclick="selectProduct(6)">
+                        سفارش ویژه
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">نظرات کاربران</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"فالوورهای واقعی و باکیفیتی دریافت کردم. پشتیبانی عالی هستید."</p>
+                    <div class="testimonial-author">سارا محمدی</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"برای تست رایگان سفارش دادم و واقعاً راضی بودم. ادامه دادم."</p>
+                    <div class="testimonial-author">علی رضایی</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"تحویل خیلی سریع بود. فالوورها واقعی و فعال بودند."</p>
+                    <div class="testimonial-author">مریم کریمی</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">قوانین و مقررات</a>
+                <a href="#">حریم خصوصی</a>
+                <a href="#">سوالات متداول</a>
+                <a href="#">تماس با ما</a>
+            </div>
+            <div class="copyright">
+                © ۲۰۲۳ InstagramPro - تمامی حقوق محفوظ است
+            </div>
+        </footer>
+    </div>
+    
+    <!-- مودال ورود -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="modal-title">ورود به حساب کاربری</h3>
+                <p class="modal-text">
+                    برای خرید محصول مورد نظر، ابتدا باید وارد حساب کاربری خود شوید.
+                </p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-secondary" onclick="closeModal()">
+                    بعداً
+                </button>
+                <button class="modal-btn btn-primary" onclick="goToLogin()">
+                    ورود / ثبت‌نام
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedProduct = null;
+        
+        // انتخاب محصول
+        function selectProduct(productId) {
+            selectedProduct = productId;
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        
+        // بستن مودال
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            selectedProduct = null;
+        }
+        
+        // رفتن به صفحه ورود
+        function goToLogin() {
+            // ذخیره محصول انتخاب شده
+            localStorage.setItem('selectedProduct', selectedProduct);
+            
+            // هدایت به صفحه لاگین
+            window.location.href = 'instagram-login.html';
+            
+            // یا باز کردن در صفحه جدید
+            // window.open('instagram-login.html', '_blank');
+        }
+        
+        // ورود از طریق دکمه هدر
+        document.getElementById('loginHeaderBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            selectedProduct = 0; // برای ورود مستقیم
+            document.getElementById('loginModal').style.display = 'flex';
+        });
+        
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // انیمیشن برای کارت‌ها
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // اعمال انیمیشن روی کارت‌ها
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
